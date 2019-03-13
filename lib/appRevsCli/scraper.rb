@@ -6,14 +6,17 @@ class AppRevsCli::Scraper
   def scrape_categories
     site = "https://www.getapp.com/"
     @doc = Nokogiri::HTML(open(site))
-    test = @doc.search("div.card popular-categories-card text-center")
+    categories = @doc.search("p.popular-categories-link")
 
 
-    test
 
   end
 
 
+  #start index list numbering from (1)
+  categories.each.with_index(1) do |category, index|
+    puts "#{index}) #{category.text}"
+  end
 
 
 
