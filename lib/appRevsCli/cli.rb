@@ -1,5 +1,9 @@
 class AppRevsCli::CLI
 
+  def coll
+    puts " comment goes here"
+  end
+
   def call
     header
     AppRevsCli::Scraper.new.scrape_categories

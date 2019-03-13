@@ -1,3 +1,6 @@
 #!/usr/bin/env ruby
 
-puts "hello"
+require "./lib/appRevsCli"
+
+AppRevsCli::CLI.new.coll
+AppRevsCli::Scraper.new.scrape_categories

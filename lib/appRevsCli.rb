@@ -1,6 +1,9 @@
-require "appRevsCli/version"
+require_relative "./appRevsCli/version"
+require_relative "./appRevsCli/cli"
+require_relative "./appRevsCli/review"
+require_relative "./appRevsCli/scraper"
+require_relative "./appRevsCli/category"
 
-module AppRevsCli
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
