@@ -4,7 +4,17 @@ require "./lib/appRevsCli"
 
 AppRevsCli::CLI.new.coll
 AppRevsCli::Scraper.new.scrape_categories
-AppRevsCli::Scraper.new.scrape_apps("https://www.getapp.com/business-intelligence-analytics-software/business-intelligence/")
+# AppRevsCli::Category.find_category_by_index(1)
+# AppRevsCli::Category.find_category_by_index(2)
+# AppRevsCli::Category.category_url(1)
+# AppRevsCli::Category.category_url(1)
+
+AppRevsCli::Scraper.new.scrape_apps(AppRevsCli::Category.find_category_by_index(1))
+
+AppRevsCli::Apps.list_apps
+
+
+
 
 
 # input = "/business-intelligence-analytics-software/business-intelligence/"

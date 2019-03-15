@@ -1,8 +1,5 @@
 class AppRevsCli::Scraper
 
-
-
-
   def scrape_categories
     site = "https://www.getapp.com"
     @doc = Nokogiri::HTML(open(site))
@@ -18,11 +15,19 @@ class AppRevsCli::Scraper
     end
   end
 
-  def scrape_apps(site)
+  def scrape_apps(category_object)
+    site = category_object.url
     @doc = Nokogiri::HTML(open(site))
-    list_section = @doc.search("div.listing-col-main")
-    list_section.each do |app|
-      puts app.css.("h2.listing-title").text
+    list_section = @doc.search("div.listing")
+    list_section.each do |app_item|
+      app = AppRevsCli::App.new
+      # puts app.search.("h2.listing-title").text
+      app.name = app_item.search("h2.listing-title").text.split(" ")[0].strip
+      app.review = app_item.search("span.listing-overview").text
+      app.total_reviews = app_item.search("a.rating-stars span").text.split(" ")[0]
+      app.category
+
+      app.save
     end
   end
 

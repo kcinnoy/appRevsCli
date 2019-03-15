@@ -5,8 +5,18 @@ class AppRevsCli::Category
   @@all = []
 
   def self.find_category_by_index(index)
-    puts @@all[index-1].url
+    @@all[index-1]
   end
+
+  def self.category_url(category_index)
+        puts find_category_by_index(category_index).url
+  end
+
+  def self.category_url(category_index)
+        puts find_category_by_index(category_index).url
+  end
+
+
 
 
   def save
