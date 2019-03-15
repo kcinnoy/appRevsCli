@@ -4,6 +4,8 @@ require "./lib/appRevsCli"
 
 AppRevsCli::CLI.new.coll
 AppRevsCli::Scraper.new.scrape_categories
+AppRevsCli::Scraper.new.scrape_apps("https://www.getapp.com/business-intelligence-analytics-software/business-intelligence/")
+
 
 # input = "/business-intelligence-analytics-software/business-intelligence/"
 
@@ -13,9 +15,9 @@ AppRevsCli::Scraper.new.scrape_categories
 
 # category_object_url =category_object.url
 #
-input = 1
 
-site = AppRevsCli::Category.find_category_by_index(input)
+
+# site = AppRevsCli::Category.find_category_by_index(input)
 
 
 

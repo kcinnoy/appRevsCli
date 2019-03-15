@@ -20,16 +20,10 @@ class AppRevsCli::Scraper
 
   def scrape_apps(site)
     @doc = Nokogiri::HTML(open(site))
-    list_section = @doc.search("div.serp-listings")
+    list_section = @doc.search("div.listing-col-main")
     list_section.each do |app|
-      app_name = list_section("h2.listing-title")
-      app2 = liist
+      puts app.css.("h2.listing-title").text
     end
-
-
-
-
-
   end
 
 end
