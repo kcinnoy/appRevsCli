@@ -4,4 +4,20 @@ require "./lib/appRevsCli"
 
 AppRevsCli::CLI.new.coll
 AppRevsCli::Scraper.new.scrape_categories
-x
+
+# input = "/business-intelligence-analytics-software/business-intelligence/"
+
+# input = get
+#
+# category_object_url = findObj_by_index(input).url
+
+# category_object_url =category_object.url
+#
+input = 1
+
+site = AppRevsCli::Category.find_category_by_index(input)
+
+
+
+
+# AppRevsCli::Category.scrape_apps(object)

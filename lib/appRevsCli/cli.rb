@@ -7,8 +7,8 @@ class AppRevsCli::CLI
   def call
     header
     AppRevsCli::Scraper.new.scrape_categories
-    list_categories
     menu
+    list_categories
   end
 
   def header
@@ -22,7 +22,7 @@ class AppRevsCli::CLI
 
 
   def menu
-    puts "\n What software would you like to browse? (select options [1] to [#{}] )"
+    puts "\n What type of software are you interested in? (select options [1] to [#{AppRevsCli::Category.all.size}] )"
   end
 
 

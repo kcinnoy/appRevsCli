@@ -1,23 +1,35 @@
 class AppRevsCli::Scraper
 
-  def scrape_category
-  end
+
+
 
   def scrape_categories
-    site = "https://www.getapp.com/"
+    site = "https://www.getapp.com"
     @doc = Nokogiri::HTML(open(site))
-    categories = @doc.search("p.popular-categories-link")
+    category_section = @doc.search("a.popular-categories-card")
+    category_links = category_section
+    category_links.each do |link|
+      category = AppRevsCli::Category.new
+
+      category.name = link.css("p.popular-categories-link").text
+      category.url = "#{site}#{link.attr("href")}"
+
+      category.save
+    end
+  end
+
+  def scrape_apps(site)
+    @doc = Nokogiri::HTML(open(site))
+    list_section = @doc.search("div.serp-listings")
+    list_section.each do |app|
+      app_name = list_section("h2.listing-title")
+      app2 = liist
+    end
+
+
 
 
 
   end
-
-
-  #start index list numbering from (1)
-  categories.each.with_index(1) do |category, index|
-    puts "#{index}) #{category.text}"
-  end
-
-
 
 end
